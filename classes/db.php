@@ -1,6 +1,5 @@
 <?php
-	
-	namespace classes;
+	namespace Core;
 	
 	class DB {
 		protected $dbuser;
