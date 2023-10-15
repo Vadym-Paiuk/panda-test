@@ -14,12 +14,13 @@
 			if (array_key_exists($url, $this->routes)) {
 				$controller = $this->routes[$url];
 				
+				$class = $controller . 'Controller';
 				// Assuming controllers are in a 'controllers' directory.
-				require_once( ROOT_PATH . 'controllers/' . $controller . '.php');
+				require_once( ROOT_PATH . 'controllers/' . $class . '.php');
 				
 				// Instantiate the controller and call the specified method.
-				$controller = '\Core\controllers\\' . $controller;
-				$controllerInstance = new $controller();
+				$path = '\Core\controllers\\' . $controller . 'Controller';
+				$controllerInstance = new $path($controller);
 			} else {
 				// Handle 404 - Not Found
 				$this->error404();

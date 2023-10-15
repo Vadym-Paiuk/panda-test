@@ -3,6 +3,7 @@
 <head>
     <title><?php echo $data['title']; ?></title>
 	<link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 
@@ -14,5 +15,3 @@
 		<li class="nav-item"><a href="/account" class="nav-link">Account</a></li>
 	</ul>
 </header>
-
-<main>
