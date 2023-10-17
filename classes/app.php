@@ -15,8 +15,10 @@
 			$router->addRoute('/logout', 'logout');
 			$router->addRoute('/registration', 'registration');
 			$router->addRoute('/account', 'account');
+			$router->addRoute('/quiz', 'quiz');
+			$router->addRoute('/api', 'api');
 			
-			$url = $_SERVER['REQUEST_URI'];
+			$url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 			$router->handleRequest($url);
 		}
 	}

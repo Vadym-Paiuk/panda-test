@@ -18,14 +18,15 @@
 			$ar_login = [
 				'/',
 				'/logout',
-				'/account'
+				'/account',
+				'/quiz'
 			];
 			$ar_logout = [
 				'/',
 				'/login',
 				'/registration'
 			];
-			$url = $_SERVER['REQUEST_URI'];
+			$url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 			$user = new User();
 			
 			if ( $user->check_auth() ){

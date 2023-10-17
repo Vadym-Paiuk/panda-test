@@ -24,6 +24,8 @@
 			$userID = $stmt->insert_id;
 			$stmt->close();
 			
+			$this->user_authorization($userID);
+			
 			return $userID;
 		}
 		
@@ -47,7 +49,7 @@
 				$stmt->close();
 			}
 			
-			$this->user_authorization($user);
+			$this->user_authorization($user['id']);
 			
 			return true;
 		}
@@ -80,8 +82,12 @@
 			return $user;
 		}
 		
-		public function user_authorization($user){
-			$_SESSION['user_id'] = $user['id'];
+		public function user_authorization($id){
+			$_SESSION['user_id'] = $id;
+		}
+		
+		public function get_current_user_id(){
+			return $_SESSION['user_id'] ?? false;
 		}
 		
 		public function check_auth(){
